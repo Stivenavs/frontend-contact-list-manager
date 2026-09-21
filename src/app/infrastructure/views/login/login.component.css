@@ -1,0 +1,108 @@
+/* General container styling */
+.login-container {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("/assets/LOGIN/fondo.avif"); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+/* Content container */
+.login-content {
+  display: flex;
+  background-color: rgba(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+
+.login-logo {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form column */
+.login-content > div:last-child {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.recordarme {
+  padding-top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.login-button {
+  width: 100%;
+  margin-top: 5px;
+  padding: 15px;
+  background-color: #ffcc00; /* Color del botón */
+  border: none;
+  border-radius: 4px;
+  color: #333;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #e6b800; /* Color del botón en hover */
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 1em;
+  position: relative; /* Cambiado de absolute a relative */
+  background-color: #ffe6e6;
+  border-radius: 15px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .login-content {
+    flex-direction: column;
+  }
+
+  .login-content > div:first-child,
+  .login-content > div:last-child {
+    width: 100%;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,95 @@
+/* Global Config */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, Roboto, 'Helvetica Neue', sans-serif;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: auto;
+  }
+}
+
+
+:root {
+  --brand-primary:      #003399;
+  --brand-primary-dark: #002580;
+  --brand-accent:       #ffcc00;
+  --brand-accent-dark:  #e6b800;
+  --brand-surface:      #f5f7fa;
+  --brand-text:         #1a1a2e;
+  --brand-text-muted:   #6c757d;
+
+  /* PrimeNG semantic overrides */
+  --p-primary-50:  #eff3ff;
+  --p-primary-100: #dce5ff;
+  --p-primary-200: #b3c6ff;
+  --p-primary-300: #7aa0ff;
+  --p-primary-400: #4575f5;
+  --p-primary-500: #003399;
+  --p-primary-600: #002b80;
+  --p-primary-700: #002266;
+  --p-primary-800: #001a4d;
+  --p-primary-900: #001133;
+  --p-primary-950: #000a1a;
+
+  --p-primary-color:          #003399;
+  --p-primary-contrast-color: #ffffff;
+  --p-highlight-background:   rgba(255, 204, 0, 0.18);
+  --p-highlight-color:        #003399;
+  --p-focus-ring-color:       rgba(0, 51, 153, 0.3);
+}
+
+/* Backoffice utility classes */
+.backoffice-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.backoffice-page-header h2 {
+  color: var(--brand-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.backoffice-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 51, 153, 0.08);
+}
+
+/* Blur de fondo al abrir modales */
+.p-dialog-mask {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* PrimeNG button brand override */
+.p-button-primary {
+  background: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+.p-button-primary:hover {
+  background: var(--brand-primary-dark) !important;
+  border-color: var(--brand-primary-dark) !important;
+}
+
+/* Botón recalcular fila: gris por defecto, naranja en hover */
+.recalcular-row-btn button:hover {
+  background: var(--p-button-warn-background) !important;
+  border-color: var(--p-button-warn-border-color) !important;
+  color: var(--p-button-warn-color) !important;
+}
+
+
