@@ -1,0 +1,127 @@
+<p-toast />
+
+<div class="bo-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" [class.collapsed]="collapsed()">
+
+    <div class="sidebar-brand">
+      <img src="assets/favicon.ico" alt="Logo" class="brand-logo" />
+      @if (!collapsed()) {
+        <span class="brand-name">Lista de Contactos</span>
+      }
+    </div>
+
+    <nav class="sidebar-nav">
+      @for (item of navItems; track item.route) {
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+          class="nav-item"
+          [pTooltip]="collapsed() ? item.label : ''"
+          tooltipPosition="right">
+          <i [class]="item.icon"></i>
+          @if (!collapsed()) {
+            <span>{{ item.label }}</span>
+          }
+        </a>
+      }
+    </nav>
+
+    <div class="sidebar-footer">
+      <button
+        class="nav-item logout-btn"
+        (click)="logout()"
+        [pTooltip]="collapsed() ? 'Cerrar sesión' : ''"
+        tooltipPosition="right">
+        <i class="pi pi-sign-out"></i>
+        @if (!collapsed()) {
+          <span>Cerrar sesión</span>
+        }
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <div class="main-area" [class.expanded]="collapsed()">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <button class="toggle-btn" (click)="toggleSidebar()">
+        <i class="pi pi-bars"></i>
+      </button>
+
+      <div class="topbar-right" (click)="openProfile()" title="Ver perfil">
+        @if (avatarUrl) {
+          <img [src]="avatarUrl" [alt]="userName" class="user-avatar" />
+        } @else {
+          <i class="pi pi-user"></i>
+        }
+        <span class="user-name">{{ userName }}</span>
+        <i class="pi pi-chevron-down topbar-chevron"></i>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <main class="page-content">
+      <router-outlet />
+    </main>
+
+  </div>
+
+</div>
+
+<!-- ===== PROFILE DRAWER ===== -->
+<p-drawer
+  [(visible)]="profileVisible"
+  header="Mi Perfil"
+  position="right"
+  [style]="{ width: '380px' }">
+
+  <!-- Avatar + nombre -->
+  <div class="profile-hero">
+    @if (profileUser.avatarUrl) {
+      <img [src]="profileUser.avatarUrl" [alt]="profileUser.firstName" class="profile-avatar" />
+    } @else {
+      <div class="profile-avatar-placeholder"><i class="pi pi-user"></i></div>
+    }
+    <div class="profile-hero-name">
+      {{ profileUser.firstName }} {{ profileUser.lastName }}
+    </div>
+    <div class="profile-hero-email">{{ profileUser.email }}</div>
+  </div>
+
+  <p-divider />
+
+  <!-- Información personal -->
+  <p class="profile-section-title">Información personal</p>
+
+  <div class="profile-form">
+    <div class="profile-field">
+      <label>Nombre</label>
+      <input type="text" pInputText [(ngModel)]="profileUser.firstName" placeholder="Nombre" />
+    </div>
+    <div class="profile-field">
+      <label>Apellido</label>
+      <input type="text" pInputText [(ngModel)]="profileUser.lastName" placeholder="Apellido" />
+    </div>
+    <div class="profile-field">
+      <label>Correo electrónico</label>
+      <input type="email" pInputText [(ngModel)]="profileUser.email" placeholder="correo@ejemplo.com" />
+    </div>
+    <div class="profile-field">
+      <label>Teléfono</label>
+      <input type="text" pInputText [(ngModel)]="profileUser.phone" placeholder="3001234567" />
+    </div>
+    <div class="profile-field">
+      <label>URL Avatar</label>
+      <input type="text" pInputText [(ngModel)]="profileUser.avatarUrl" placeholder="https://..." />
+    </div>
+  </div>
+
+  
+  <p-divider />
+
+</p-drawer>

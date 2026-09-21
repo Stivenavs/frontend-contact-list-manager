@@ -1,0 +1,32 @@
+<div class="dashboard">
+
+  <div class="welcome-banner">
+    <div class="welcome-text">
+      <h2>Bienvenido, <span class="accent">{{ userName }}</span></h2>
+      <p>Panel de administración</p>
+    </div>
+    <div class="welcome-icon">
+      <i class="pi pi-chart-bar"></i>
+    </div>
+  </div>
+
+  <h3 class="section-title">Módulos disponibles</h3>
+
+  <div class="stat-grid">
+    @for (card of stats; track card.route) {
+      <div class="stat-card" [routerLink]="card.route">
+        <div class="card-top">
+          <div class="stat-icon" [style.background]="card.color">
+            <i [class]="card.icon"></i>
+          </div>
+          <i class="pi pi-arrow-right stat-arrow"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-label">{{ card.label }}</span>
+          <span class="stat-sub">{{ card.value }}</span>
+        </div>
+      </div>
+    }
+  </div>
+
+</div>

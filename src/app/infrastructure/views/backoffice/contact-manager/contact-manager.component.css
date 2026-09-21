@@ -1,0 +1,104 @@
+.table-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.table-title {
+  font-weight: 600;
+  color: #003399;
+  font-size: 0.9rem;
+}
+
+.action-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.empty-table {
+  text-align: center;
+  padding: 2rem !important;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Avatar en tabla */
+.avatar-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #003399;
+  display: block;
+}
+
+.avatar-placeholder {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eff3ff;
+  border: 2px solid #c7d3f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #003399;
+  font-size: 1rem;
+}
+
+/* Chip tipo documento */
+.doc-chip {
+  display: inline-block;
+  background: #eff3ff;
+  color: #003399;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* Form dialog */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field.full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #003399;
+}
+
+.form-field input {
+  width: 100%;
+}
+
+.toggle-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: #495057;
+}
